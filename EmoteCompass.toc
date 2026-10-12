@@ -1,0 +1,11 @@
+## Interface: 16001
+## Title: Emote Compass
+## Notes: A radial emote wheel. Hold the key, point at an emote, release.
+## Author: eidoux
+## Version: 0.1.0
+
+# Core
+Core\Constants.lua
+
+# Globals (slash commands) and startup
+Init.lua
