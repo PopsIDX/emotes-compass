@@ -4,8 +4,10 @@
 ## Author: eidoux
 ## Version: 0.1.0
 
-# Core
+# Core: constants, emote catalog
 Core\Constants.lua
+Data\EmoteData.lua
+Core\Catalog.lua
 
 # Globals (slash commands) and startup
 Init.lua
