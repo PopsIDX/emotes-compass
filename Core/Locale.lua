@@ -7,4 +7,8 @@ ns.L = {
 	-- Wheel
 	cancel = "Cancel",
 	empty = "Empty",
+
+	-- Key binding
+	bindingHeader = "Emote Compass",
+	bindingName = "Open emote wheel",
 }

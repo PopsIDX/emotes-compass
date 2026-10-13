@@ -13,6 +13,7 @@ Core\Catalog.lua
 
 # UI
 UI\WheelView.lua
+UI\Popup.lua
 
-# Globals (slash commands) and startup
+# Globals (key binding, slash commands) and startup
 Init.lua

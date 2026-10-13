@@ -3,3 +3,4 @@
 local _, ns = ...
 
 ns.SLOT_COUNT = 8 -- the gamepad wheel art has exactly 8 wedges
+ns.BINDING = "EMOTECOMPASS_TOGGLE" -- must match the name in Bindings.xml
