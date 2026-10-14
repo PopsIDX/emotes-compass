@@ -27,6 +27,9 @@ local HUB_RADIUS  = 70   -- no wedge is selected inside the hub
 local HUB_WIDTH, HUB_HEIGHT = 90, 70
 local HUB_ICON_SIZE = 32
 local EMPTY_ALPHA = 0.6
+local HOVER_SCALE = 1.15
+local HOVER_SPEED = 18
+local HOVER_SETTLE = 0.001 -- close enough to the target scale to snap to it and stop animating
 
 local LABEL_COLOR_EMPTY = CreateColor(0.5, 0.5, 0.5)
 local LABEL_COLOR_HIGHLIGHT = CreateColor(1, 1, 1)
@@ -63,6 +66,7 @@ local function CreateSlot(view, index)
 	slot:SetSize(ICON_SIZE, ICON_SIZE)
 	slot.centerX, slot.centerY = c * WEDGE_CENTER, s * WEDGE_CENTER
 	slot.x, slot.y = slot.centerX, slot.centerY
+	slot.scale = 1
 	slot.highlightRotation = math.rad(degrees - HIGHLIGHT_ROTATION_CORRECTION)
 
 	slot.icon = Util.CreateRoundIcon(slot)
@@ -155,9 +159,11 @@ function ViewMixin:Layout()
 	end
 end
 
+-- Anchor offsets are in the slot's own (scaled) units: compensate to keep it in place.
 function ViewMixin:PlaceSlot(slot)
+	slot:SetScale(slot.scale)
 	slot:ClearAllPoints()
-	slot:SetPoint("CENTER", self, "CENTER", slot.x, slot.y)
+	slot:SetPoint("CENTER", self, "CENTER", slot.x / slot.scale, slot.y / slot.scale)
 end
 
 ---------------------------------------------------------------------------
@@ -205,4 +211,29 @@ function ViewMixin:GetSlotAtCursor(includeEmpty, limitToRim)
 	local index = math.floor(fromTop / step + 0.5) % ns.SLOT_COUNT + 1
 	if not includeEmpty and not self.tokens[index] then return nil end
 	return index
+end
+
+---------------------------------------------------------------------------
+-- Hover animation
+---------------------------------------------------------------------------
+
+-- Only slots still growing or shrinking are touched.
+function ViewMixin:UpdateHover(elapsed)
+	for i, slot in ipairs(self.slots) do
+		local target = i == self.highlighted and HOVER_SCALE or 1
+		if slot.scale ~= target then
+			slot.scale = Util.Approach(slot.scale, target, elapsed, HOVER_SPEED)
+			if math.abs(target - slot.scale) < HOVER_SETTLE then
+				slot.scale = target
+			end
+			self:PlaceSlot(slot)
+		end
+	end
+end
+
+function ViewMixin:ResetHover()
+	for _, slot in ipairs(self.slots) do
+		slot.scale = 1
+		self:PlaceSlot(slot)
+	end
 end

@@ -7,6 +7,11 @@ ns.Util = Util
 
 local CIRCLE_MASK = "Interface\\CharacterFrame\\TempPortraitAlphaMask"
 
+function Util.PlaySound(soundKitName)
+	local id = SOUNDKIT[soundKitName]
+	if id then PlaySound(id) end
+end
+
 -- Cursor position in the coordinate space of `frame` (i.e. comparable with frame:GetCenter()).
 function Util.GetCursorIn(frame)
 	local x, y = GetCursorPosition()
@@ -35,4 +40,9 @@ function Util.FitText(fontString, maxWidth)
 	if fontString:GetStringWidth() > maxWidth then
 		fontString:SetWidth(maxWidth)
 	end
+end
+
+-- Frame-rate independent ease towards `target`.
+function Util.Approach(current, target, elapsed, speed)
+	return current + (target - current) * math.min(1, elapsed * speed)
 end

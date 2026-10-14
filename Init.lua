@@ -23,7 +23,7 @@ SlashCmdList.EMOTECOMPASS = function(msg)
 			print(emote.token, emote.command, emote.icon)
 		end
 	else
-		ns.Popup.Open()
+		ns.Popup.Show()
 	end
 end
 
