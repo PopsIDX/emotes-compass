@@ -2,7 +2,7 @@
 
 local ADDON_NAME, ns = ...
 
-local L = ns.L
+local DB, L = ns.DB, ns.L
 
 -- Key binding (declared in Bindings.xml): it gets its own section in the game's keybinds list.
 BINDING_CATEGORY_EMOTECOMPASS = L.bindingHeader
@@ -26,3 +26,11 @@ SlashCmdList.EMOTECOMPASS = function(msg)
 		ns.Popup.Open()
 	end
 end
+
+local events = CreateFrame("Frame")
+events:SetScript("OnEvent", function(self, event, name)
+	if name ~= ADDON_NAME then return end
+	DB.Init()
+	self:UnregisterEvent("ADDON_LOADED")
+end)
+events:RegisterEvent("ADDON_LOADED")

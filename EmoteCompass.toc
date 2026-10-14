@@ -3,11 +3,13 @@
 ## Notes: A radial emote wheel. Hold the key, point at an emote, release.
 ## Author: eidoux
 ## Version: 0.1.0
+## SavedVariables: EmoteCompassDB
 
-# Core: constants, text, helpers, emote catalog
+# Core: constants, text, helpers, saved data, emote catalog
 Core\Constants.lua
 Core\Locale.lua
 Core\Util.lua
+Core\Database.lua
 Data\EmoteData.lua
 Core\Catalog.lua
 

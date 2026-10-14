@@ -2,15 +2,12 @@
 
 local _, ns = ...
 
-local Util, Catalog = ns.Util, ns.Catalog
+local Util, DB, Catalog = ns.Util, ns.DB, ns.Catalog
 
 local Popup = {}
 ns.Popup = Popup
 
 local SCALE = 0.8
-
--- Fixed layout until the player's own is saved.
-local SLOTS = { "WAVE", "DANCE", "LAUGH", "BOW", "APPLAUD", "KISS", "SALUTE", "CRY" }
 
 local root, view
 local anchorX, anchorY = 0, 0 -- where the wheel opened, in root coordinates
@@ -58,7 +55,7 @@ function Popup.Open()
 
 	anchorX, anchorY = Util.GetCursorIn(root)
 	PlaceView()
-	view:SetTokens(SLOTS)
+	view:SetTokens(DB.GetSlots())
 	root:Show()
 end
 
