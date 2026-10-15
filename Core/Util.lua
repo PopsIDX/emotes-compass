@@ -19,6 +19,14 @@ function Util.GetCursorIn(frame)
 	return x / scale, y / scale
 end
 
+-- Anchor `frame` by its center under the cursor, relative to `parent`'s bottom-left corner.
+function Util.MoveToCursor(frame, parent)
+	local x, y = Util.GetCursorIn(parent)
+	local scale = frame:GetScale() -- anchor offsets are in the frame's own (scaled) units
+	frame:ClearAllPoints()
+	frame:SetPoint("CENTER", parent, "BOTTOMLEFT", x / scale, y / scale)
+end
+
 local function AddCircleMask(owner, texture)
 	local mask = owner:CreateMaskTexture()
 	mask:SetTexture(CIRCLE_MASK, "CLAMPTOBLACKADDITIVE", "CLAMPTOBLACKADDITIVE")

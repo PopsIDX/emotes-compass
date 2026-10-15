@@ -11,4 +11,8 @@ ns.L = {
 	-- Key binding
 	bindingHeader = "Emote Compass",
 	bindingName = "Open emote wheel",
+
+	-- Editor
+	editorTitle = "Customize the emote wheel",
+	listHint = "Drag and drop emotes onto the wheel",
 }

@@ -12,16 +12,13 @@ function EmoteCompass_OnBinding(keystate)
 	ns.Popup.OnBinding(keystate)
 end
 
--- /ec list: print every emote of the catalog (temporary, to check the data)
--- /ec show: open the wheel
+-- /ec edit: wheel editor · /ec show: open the wheel
 SLASH_EMOTECOMPASS1 = "/emotecompass"
 SLASH_EMOTECOMPASS2 = "/ec"
 SlashCmdList.EMOTECOMPASS = function(msg)
 	local command = strlower(strtrim(msg))
-	if command == "list" then
-		for _, emote in ipairs(ns.Catalog.GetAll()) do
-			print(emote.token, emote.command, emote.icon)
-		end
+	if command == "edit" then
+		ns.Editor.Open()
 	else
 		ns.Popup.Show()
 	end
