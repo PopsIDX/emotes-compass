@@ -7,7 +7,7 @@ local DB = {}
 ns.DB = DB
 
 -- Starting set on first use; players customize it from there.
-local DEFAULT_SLOTS = { "WAVE", "DANCE", "LAUGH", "BOW", "APPLAUD", "KISS", "SALUTE", "CRY" }
+local DEFAULT_SLOTS = { "WAVE", "CHEER", "DANCE", "LAUGH", "BOW", "APPLAUD", "KISS", "SALUTE" }
 assert(#DEFAULT_SLOTS == ns.SLOT_COUNT, "EmoteCompass: DEFAULT_SLOTS must fill every wedge")
 
 local data
@@ -33,4 +33,11 @@ end
 
 function DB.SwapSlots(a, b)
 	data.slots[a], data.slots[b] = data.slots[b], data.slots[a]
+end
+
+function DB.IsOnWheel(token)
+	for i = 1, ns.SLOT_COUNT do
+		if data.slots[i] == token then return true end
+	end
+	return false
 end

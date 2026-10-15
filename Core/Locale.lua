@@ -14,5 +14,7 @@ ns.L = {
 
 	-- Editor
 	editorTitle = "Customize the emote wheel",
-	listHint = "Drag and drop emotes onto the wheel",
+	voiced = "Voiced",
+	listHint = "Drag and drop emotes onto the wheel\nClick an emote to try it",
+	slotTooltip = "Click: try it · Drag to move · Right-click to clear",
 }
