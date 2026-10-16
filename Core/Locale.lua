@@ -17,4 +17,7 @@ ns.L = {
 	voiced = "Voiced",
 	listHint = "Drag and drop emotes onto the wheel\nClick an emote to try it",
 	slotTooltip = "Click: try it · Drag to move · Right-click to clear",
+
+	-- Wheel button
+	buttonDragTip = "Drag: move",
 }
