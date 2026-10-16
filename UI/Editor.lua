@@ -23,6 +23,9 @@ local LIST_TOP       = 60   -- room for the search box and the hint, from the ca
 local ROW_HEIGHT     = 30
 local LABEL_MAX      = 220  -- widest emote name in a row, leaves room for the voice icon
 local VOICE_SIZE     = 18
+local FEATHER        = 24   -- soft edge of the list card
+local CARD_LAYERS    = 8    -- stacked layers that fake the card's feathered edge
+local CARD_LAYER_ALPHA = 0.11
 
 local COLOR_ON_WHEEL = CreateColor(0.4, 1, 0.4)
 
@@ -249,14 +252,20 @@ local function CreateWheel()
 	end
 end
 
+-- Translucent black card with soft edges on every side: stacked, progressively inset
+-- layers ramp the alpha up over FEATHER px (the center ends up around 60% opaque).
 local function CreateCardBackground(card)
-	local background = card:CreateTexture(nil, "BACKGROUND")
-	background:SetAllPoints()
-	background:SetColorTexture(0, 0, 0, 0.6)
+	for i = 0, CARD_LAYERS - 1 do
+		local inset = i * FEATHER / CARD_LAYERS
+		local layer = card:CreateTexture(nil, "BACKGROUND")
+		layer:SetPoint("TOPLEFT", inset, -inset)
+		layer:SetPoint("BOTTOMRIGHT", -inset, inset)
+		layer:SetColorTexture(0, 0, 0, CARD_LAYER_ALPHA)
+	end
 end
 
 local function CreateList()
-	local pad = 28
+	local pad = FEATHER + 4 -- keep the content on the opaque part of the card
 	local card = CreateFrame("Frame", nil, frame)
 	card:SetPoint("TOPLEFT", WHEEL_ZONE, -CARD_TOP)
 	card:SetPoint("BOTTOMRIGHT", 0, CARD_BOTTOM)
@@ -295,8 +304,11 @@ local function Create()
 	frame:SetPoint("CENTER")
 	frame:SetFrameStrata("DIALOG")
 	frame:SetToplevel(true)
+	frame:SetClampedToScreen(true)
 	frame:SetMovable(true)
+	frame:SetDontSavePosition(true) -- always opens centered; the game must not cache a dragged position
 	frame:Hide()
+	tinsert(UISpecialFrames, "EmoteCompassEditor") -- Escape closes it
 
 	CreateHeader()
 	CreateWheel()
