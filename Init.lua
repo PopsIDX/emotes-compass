@@ -4,6 +4,8 @@ local ADDON_NAME, ns = ...
 
 local DB, L = ns.DB, ns.L
 
+local DEFAULT_KEY = "G"
+
 -- Key binding (declared in Bindings.xml): it gets its own section in the game's keybinds list.
 BINDING_CATEGORY_EMOTECOMPASS = L.bindingHeader
 BINDING_NAME_EMOTECOMPASS_TOGGLE = L.bindingName
@@ -27,6 +29,23 @@ SlashCmdList.EMOTECOMPASS = function(msg)
 	end
 end
 
+-- Bind the default key once, on the first login with the addon. It's a real binding so it shows
+-- (and can be changed) in the options; after that the player's bindings are never touched again.
+-- Does nothing during combat (bindings are locked); it's retried when combat ends.
+local function ApplyDefaultKey()
+	if DB.IsDefaultKeyApplied() then return true end
+	if GetBindingKey(ns.BINDING) then
+		DB.SetDefaultKeyApplied()
+		return true
+	end
+	if InCombatLockdown() then return false end
+
+	SetBinding(DEFAULT_KEY, ns.BINDING)
+	SaveBindings(GetCurrentBindingSet())
+	DB.SetDefaultKeyApplied()
+	return true
+end
+
 local handlers = {}
 
 function handlers.ADDON_LOADED(frame, name)
@@ -35,9 +54,15 @@ function handlers.ADDON_LOADED(frame, name)
 	frame:UnregisterEvent("ADDON_LOADED")
 end
 
-function handlers.PLAYER_LOGIN()
+function handlers.PLAYER_LOGIN(frame)
 	ns.Options.Register()
 	ns.WheelButton.Refresh()
+	ApplyDefaultKey()
+	frame:RegisterEvent("PLAYER_REGEN_ENABLED")
+end
+
+function handlers.PLAYER_REGEN_ENABLED()
+	ApplyDefaultKey()
 end
 
 local events = CreateFrame("Frame")

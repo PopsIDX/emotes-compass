@@ -1,6 +1,7 @@
 -- SavedVariables (EmoteCompassDB, account-wide). The only module that touches it.
 --   slots             [1..SLOT_COUNT] = emote token, nil for an empty wedge (clockwise from the top);
 --                     the same token may appear on several wedges
+--   defaultKeyApplied true once the default key has been bound on the first login
 --   button            the always-visible button: shown, locked, scale, and point = { x, y } (its center,
 --                     in UIParent units from the bottom-left corner; nil until the player moves it)
 
@@ -62,4 +63,12 @@ function DB.IsOnWheel(token)
 		if data.slots[i] == token then return true end
 	end
 	return false
+end
+
+function DB.IsDefaultKeyApplied()
+	return data.defaultKeyApplied == true
+end
+
+function DB.SetDefaultKeyApplied()
+	data.defaultKeyApplied = true
 end
