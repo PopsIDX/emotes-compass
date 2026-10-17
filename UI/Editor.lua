@@ -328,5 +328,9 @@ end
 
 function Editor.Open()
 	if not frame then Create() end
+	-- Coming from Options > AddOns, the editor opens above the settings panel (DIALOG over its HIGH strata).
+	-- It must not close the panel: hiding it from addon code runs its OnHide (clearing the search box, saving
+	-- bindings) tainted, and the panel's search state stays tainted for every later search.
 	frame:Show()
+	frame:Raise()
 end
