@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512"
+     role="img" aria-labelledby="title desc">
+  <title id="title">Emote Compass</title>
+  <desc id="desc">A radial emote wheel with eight slots, the upper-right one selected, around a smiling face.</desc>
+
+  <!--
+    Geometry (centre 256,256):
+      outer radius 232 (rim) | hub radius 92 | slot dots at radius 160, r=16
+      8 wedges, dividers at 22.5deg + n*45deg, slot centres at n*45deg
+      selected slot = the one centred on 45deg (upper right)
+
+    Palette (sampled from the World of Warcraft: Forever logo):
+      teal   #0E516C -> #25A2CB   wheel     | navy   #092F41 -> #0E4560   hub, outline
+      cyan   #1FA8CF -> #46CBEE   selected  | ivory  #F5ECDC             dots, face, selected border
+      bronze #E0CCB2 -> #6B4F33   rim, hub ring | #C9AE88 dividers | #4A3523 rim outline
+  -->
+
+  <style>
+    .ivory-fill   { fill: #F5ECDC; }
+    .ivory-stroke { stroke: #F5ECDC; }
+  </style>
+
+  <defs>
+    <radialGradient id="wheel-fill" cx="256" cy="256" r="230" gradientUnits="userSpaceOnUse">
+      <stop offset="0.4" stop-color="#0E516C"/>
+      <stop offset="1" stop-color="#25A2CB"/>
+    </radialGradient>
+
+    <radialGradient id="hub-fill" cx="256" cy="236" r="96" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0E4560"/>
+      <stop offset="1" stop-color="#092F41"/>
+    </radialGradient>
+
+    <radialGradient id="selected-fill" cx="256" cy="256" r="232" gradientUnits="userSpaceOnUse">
+      <stop offset="0.35" stop-color="#1FA8CF"/>
+      <stop offset="1" stop-color="#46CBEE"/>
+    </radialGradient>
+
+    <linearGradient id="bronze" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#E0CCB2"/>
+      <stop offset="0.5" stop-color="#A88560"/>
+      <stop offset="1" stop-color="#6B4F33"/>
+    </linearGradient>
+
+    <filter id="drop-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#000" flood-opacity="0.45"/>
+    </filter>
+
+    <!-- Reusable parts, drawn at 12 o'clock and rotated into place -->
+    <line id="divider" x1="256" y1="164" x2="256" y2="30"/>
+    <circle id="slot-dot" cx="256" cy="96" r="16"/>
+    <!-- Wedge centred on 12 o'clock, between the hub (r=92) and the rim (r=232) -->
+    <path id="wedge" d="M 220.79 171 L 167.21 41.66 A 232 232 0 0 1 344.79 41.66 L 291.21 171 A 92 92 0 0 0 220.79 171 Z"/>
+  </defs>
+
+  <g filter="url(#drop-shadow)">
+    <circle id="wheel" cx="256" cy="256" r="232" fill="url(#wheel-fill)"/>
+
+    <g id="dividers" stroke="#C9AE88" stroke-width="8" stroke-linecap="round">
+      <use href="#divider" transform="rotate(22.5 256 256)"/>
+      <use href="#divider" transform="rotate(67.5 256 256)"/>
+      <use href="#divider" transform="rotate(112.5 256 256)"/>
+      <use href="#divider" transform="rotate(157.5 256 256)"/>
+      <use href="#divider" transform="rotate(202.5 256 256)"/>
+      <use href="#divider" transform="rotate(247.5 256 256)"/>
+      <use href="#divider" transform="rotate(292.5 256 256)"/>
+      <use href="#divider" transform="rotate(337.5 256 256)"/>
+    </g>
+
+    <!-- Drawn over the dividers so its border is not hidden; slot dots go on top -->
+    <use id="selected-wedge" href="#wedge" transform="rotate(45 256 256)"
+         class="ivory-stroke" fill="url(#selected-fill)" stroke-width="8" stroke-linejoin="round"/>
+
+    <g id="slot-dots" class="ivory-fill">
+      <use href="#slot-dot"/>
+      <use href="#slot-dot" transform="rotate(45 256 256)"/>
+      <use href="#slot-dot" transform="rotate(90 256 256)"/>
+      <use href="#slot-dot" transform="rotate(135 256 256)"/>
+      <use href="#slot-dot" transform="rotate(180 256 256)"/>
+      <use href="#slot-dot" transform="rotate(225 256 256)"/>
+      <use href="#slot-dot" transform="rotate(270 256 256)"/>
+      <use href="#slot-dot" transform="rotate(315 256 256)"/>
+    </g>
+
+    <g id="rim" fill="none">
+      <circle cx="256" cy="256" r="232" stroke="url(#bronze)" stroke-width="20"/>
+      <circle cx="256" cy="256" r="243" stroke="#4A3523" stroke-width="3"/>
+    </g>
+
+    <circle id="hub" cx="256" cy="256" r="92" fill="url(#hub-fill)" stroke="url(#bronze)" stroke-width="10"/>
+
+    <g id="face" class="ivory-stroke" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M 208 244 L 224 224 L 240 244" stroke-width="9"/>
+      <path d="M 272 244 L 288 224 L 304 244" stroke-width="9"/>
+      <path d="M 208 270 Q 256 318 304 270" stroke-width="10"/>
+    </g>
+  </g>
+</svg>
