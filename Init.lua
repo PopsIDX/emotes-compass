@@ -13,20 +13,17 @@ function EmoteCompass_OnBinding(keystate)
 	ns.Popup.OnBinding(keystate)
 end
 
--- /ec edit: wheel editor · /ec show: open the wheel
--- /ec button: show or hide the wheel button (temporary, until there are options)
+-- /ec: options · /ec edit: wheel editor · /ec show: open the wheel
 SLASH_EMOTECOMPASS1 = "/emotecompass"
 SLASH_EMOTECOMPASS2 = "/ec"
 SlashCmdList.EMOTECOMPASS = function(msg)
 	local command = strlower(strtrim(msg))
 	if command == "edit" then
 		ns.Editor.Open()
-	elseif command == "button" then
-		local button = DB.GetButton()
-		button.shown = not button.shown
-		ns.WheelButton.Refresh()
-	else
+	elseif command == "show" then
 		ns.Popup.Show()
+	else
+		ns.Options.Open()
 	end
 end
 
@@ -39,6 +36,7 @@ function handlers.ADDON_LOADED(frame, name)
 end
 
 function handlers.PLAYER_LOGIN()
+	ns.Options.Register()
 	ns.WheelButton.Refresh()
 end
 

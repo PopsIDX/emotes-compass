@@ -18,6 +18,8 @@ UI\WheelView.lua
 UI\Popup.lua
 UI\WheelButton.lua
 UI\Editor.lua
+UI\Checkbox.xml
+UI\Options.lua
 
 # Globals (key binding, slash commands) and startup
 Init.lua

@@ -1,0 +1,15 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/">
+	<!-- Blizzard's checkbox row with a small grey hint right after the checkbox (see Options.lua).
+	     The x offset assumes Blizzard's checkbox sits at CENTER -80 (SettingsCheckboxControlMixin:OnLoad). -->
+	<Frame name="EmoteCompassCheckboxTemplate" inherits="SettingsCheckboxControlTemplate" mixin="EmoteCompassCheckboxMixin" virtual="true">
+		<Layers>
+			<Layer level="ARTWORK">
+				<FontString parentKey="Hint" inherits="GameFontDisableSmall" justifyH="LEFT" wordwrap="false">
+					<Anchors>
+						<Anchor point="LEFT" relativePoint="CENTER" x="-42" y="0"/>
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+	</Frame>
+</Ui>

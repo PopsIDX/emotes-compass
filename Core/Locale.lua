@@ -18,6 +18,12 @@ ns.L = {
 	listHint = "Drag and drop emotes onto the wheel\nClick an emote to try it",
 	slotTooltip = "Click: try it · Drag to move · Right-click to clear",
 
-	-- Wheel button
+	-- Options
+	buttonShow = "Show the wheel button",
+	buttonHint = "(disables the shortcut)",
+	buttonLock = "Lock the button's position",
+	buttonSize = "Button size",
 	buttonDragTip = "Drag: move",
+	editorName = "Wheel emotes",
+	editorButton = "Customize",
 }
