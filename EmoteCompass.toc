@@ -1,6 +1,16 @@
 ## Interface: 16001
 ## Title: Emote Compass
 ## Notes: A radial emote wheel. Hold the key, point at an emote, release.
+## Notes-frFR: Une roue d'émotes. Maintenez la touche, visez une émote, relâchez.
+## Notes-deDE: Ein radiales Emote-Rad. Taste halten, auf ein Emote zeigen, loslassen.
+## Notes-esES: Una rueda radial de emotes. Mantén la tecla, apunta a un emote y suelta.
+## Notes-esMX: Una rueda radial de emotes. Mantén la tecla, apunta a un emote y suelta.
+## Notes-itIT: Una ruota radiale di emote. Tieni premuto il tasto, punta un'emote e rilascia.
+## Notes-ptBR: Uma roda radial de emotes. Segure a tecla, aponte para um emote e solte.
+## Notes-ruRU: Круговое меню эмоций. Удерживайте клавишу, наведите на эмоцию и отпустите.
+## Notes-koKR: 원형 감정 표현 휠. 키를 누른 채 감정 표현을 가리키고 놓으세요.
+## Notes-zhCN: 环形表情轮盘。按住按键，指向一个表情，然后松开。
+## Notes-zhTW: 環形表情輪盤。按住按鍵，指向一個表情，然後放開。
 ## Author: eidoux
 ## Version: 0.1.0
 ## SavedVariables: EmoteCompassDB
