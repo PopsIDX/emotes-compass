@@ -13,7 +13,7 @@
 ## Notes-zhTW: 環形表情輪盤。按住按鍵，指向一個表情，然後放開。
 ## IconTexture: Interface\AddOns\EmoteCompass\Media\Icon
 ## Author: eidoux
-## Version: 0.1.0
+## Version: 1.0.0
 ## SavedVariables: EmoteCompassDB
 
 # Core: constants, text, helpers, saved data, emote catalog
