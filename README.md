@@ -16,7 +16,9 @@ A radial emotes wheel on one key that mimics the one from the controller UI.
 
 ## 📦 Install
 
-Copy the `EmotesCompass` folder into `World of Warcraft/_<version>_/Interface/AddOns/`.
+Download the zip from the [latest release](../../releases/latest) and extract the `EmotesCompass` folder into `World of Warcraft/_<version>_/Interface/AddOns/`.
+
+It is also on [CurseForge](https://www.curseforge.com/wow/addons/emotes-compass).
 
 ## 🎮 Usage
 
