@@ -1,5 +1,5 @@
 ## Interface: 16001
-## Title: Emote Compass
+## Title: Emotes Compass
 ## Notes: A radial emote wheel. Hold the key, point at an emote, release.
 ## Notes-frFR: Une roue d'émotes. Maintenez la touche, visez une émote, relâchez.
 ## Notes-deDE: Ein radiales Emote-Rad. Taste halten, auf ein Emote zeigen, loslassen.
@@ -13,7 +13,7 @@
 ## Notes-zhTW: 環形表情輪盤。按住按鍵，指向一個表情，然後放開。
 ## IconTexture: Interface\AddOns\EmoteCompass\Media\Icon
 ## Author: eidoux
-## Version: 1.0.0
+## Version: @project-version@
 ## SavedVariables: EmoteCompassDB
 
 # Core: constants, text, helpers, saved data, emote catalog

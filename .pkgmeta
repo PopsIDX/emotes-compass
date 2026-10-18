@@ -1,0 +1,7 @@
+package-as: EmotesCompass
+
+ignore:
+    - README.md
+    - Screenshots
+    - Media/Icon.svg
+    - Media/Icon.png

@@ -2,13 +2,13 @@
 
 <img src="Screenshots/emote-compass-wheel.png" alt="The emote wheel" width="300">
 
-# 🎭 Emote Compass
+# 🎭 Emotes Compass
 
 A radial emotes wheel on one key that mimics the one from the controller UI.
 
 ![WoW Forever](https://img.shields.io/badge/WoW-Forever%201.60.1-f8b700?logo=battledotnet&logoColor=white)
 ![Interface 16001](https://img.shields.io/badge/Interface-16001-0070dd)
-![Version 1.0.0](https://img.shields.io/badge/version-1.0.0-2ea44f)
+[![CurseForge Page](https://img.shields.io/badge/-CurseForge%20Page-f16436?logo=curseforge&logoColor=white)](https://www.curseforge.com/wow/addons/emotes-compass)
 ![Lua 5.1](https://img.shields.io/badge/Lua-5.1-2c2d72?logo=lua&logoColor=white)
 
 </div>
