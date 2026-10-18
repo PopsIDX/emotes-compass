@@ -25,7 +25,7 @@ ns.L = {
 	},
 
 	-- Key binding
-	bindingHeader = "Emote Compass",
+	bindingHeader = "Emotes Compass",
 	bindingName = T{
 		en = "Open emote wheel",
 		fr = "Ouvrir la roue d'émotes",

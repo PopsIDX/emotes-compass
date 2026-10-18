@@ -67,12 +67,12 @@ local function OnEnter(self)
 end
 
 local function Create()
-	button = CreateFrame("Button", "EmoteCompassButton", UIParent)
+	button = CreateFrame("Button", "EmotesCompassButton", UIParent)
 	button:SetSize(SIZE, SIZE)
 	button:SetFrameStrata("MEDIUM")
 	button:SetClampedToScreen(true)
 	button:SetMovable(true)
-	button:SetDontSavePosition(true) -- the position lives in EmoteCompassDB (see DB.SetButtonPoint)
+	button:SetDontSavePosition(true) -- the position lives in EmotesCompassDB (see DB.SetButtonPoint)
 	button:RegisterForClicks("LeftButtonUp")
 	button:RegisterForDrag("LeftButton")
 

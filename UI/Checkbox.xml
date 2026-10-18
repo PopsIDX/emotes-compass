@@ -1,7 +1,7 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/">
 	<!-- Blizzard's checkbox row with a small grey hint right after the checkbox (see Options.lua).
 	     The x offset assumes Blizzard's checkbox sits at CENTER -80 (SettingsCheckboxControlMixin:OnLoad). -->
-	<Frame name="EmoteCompassCheckboxTemplate" inherits="SettingsCheckboxControlTemplate" mixin="EmoteCompassCheckboxMixin" virtual="true">
+	<Frame name="EmotesCompassCheckboxTemplate" inherits="SettingsCheckboxControlTemplate" mixin="EmotesCompassCheckboxMixin" virtual="true">
 		<Layers>
 			<Layer level="ARTWORK">
 				<FontString parentKey="Hint" inherits="GameFontDisableSmall" justifyH="LEFT" wordwrap="false">

@@ -16,7 +16,7 @@ A radial emotes wheel on one key that mimics the one from the controller UI.
 
 ## 📦 Install
 
-Copy the `EmoteCompass` folder into `World of Warcraft/_<version>_/Interface/AddOns/`.
+Copy the `EmotesCompass` folder into `World of Warcraft/_<version>_/Interface/AddOns/`.
 
 ## 🎮 Usage
 
@@ -48,7 +48,7 @@ The addon is plain Lua with a few XML files and no external libraries.
 - The emote list is built at runtime from the game's `EMOTE<n>_TOKEN` and `EMOTE<n>_CMD1` globals. Labels come from the client's translated slash commands, so they follow the game language. Icons are picked by hand in `Data/EmoteData.lua`.
 - The options page uses the Settings API, with one XML template for the checkbox hint.
 - The editor list uses `WowScrollBoxList` and a data provider.
-- The wheel layout and button settings are saved in the account-wide `EmoteCompassDB`.
+- The wheel layout and button settings are saved in the account-wide `EmotesCompassDB`.
 - The interface text is translated into 10 languages in `Core/Locale.lua`.
 
 ```

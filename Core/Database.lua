@@ -1,4 +1,4 @@
--- SavedVariables (EmoteCompassDB, account-wide). The only module that touches it.
+-- SavedVariables (EmotesCompassDB, account-wide). The only module that touches it.
 --   slots             [1..SLOT_COUNT] = emote token, nil for an empty wedge (clockwise from the top);
 --                     the same token may appear on several wedges
 --   defaultKeyApplied true once the default key has been bound on the first login
@@ -12,15 +12,15 @@ ns.DB = DB
 
 -- Starting set on first use; players customize it from there.
 local DEFAULT_SLOTS = { "WAVE", "CHEER", "DANCE", "LAUGH", "BOW", "APPLAUD", "KISS", "SALUTE" }
-assert(#DEFAULT_SLOTS == ns.SLOT_COUNT, "EmoteCompass: DEFAULT_SLOTS must fill every wedge")
+assert(#DEFAULT_SLOTS == ns.SLOT_COUNT, "EmotesCompass: DEFAULT_SLOTS must fill every wedge")
 
 local DEFAULT_BUTTON = { shown = false, locked = false, scale = 1 }
 
 local data
 
 function DB.Init()
-	EmoteCompassDB = EmoteCompassDB or {}
-	data = EmoteCompassDB
+	EmotesCompassDB = EmotesCompassDB or {}
+	data = EmotesCompassDB
 	data.slots = data.slots or CopyTable(DEFAULT_SLOTS)
 	data.button = data.button or {}
 	for key, value in pairs(DEFAULT_BUTTON) do

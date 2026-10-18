@@ -7,18 +7,18 @@ local DB, L = ns.DB, ns.L
 local DEFAULT_KEY = "G"
 
 -- Key binding (declared in Bindings.xml): it gets its own section in the game's keybinds list.
-BINDING_CATEGORY_EMOTECOMPASS = L.bindingHeader
-BINDING_NAME_EMOTECOMPASS_TOGGLE = L.bindingName
+BINDING_CATEGORY_EMOTESCOMPASS = L.bindingHeader
+BINDING_NAME_EMOTESCOMPASS_TOGGLE = L.bindingName
 
-function EmoteCompass_OnBinding(keystate)
+function EmotesCompass_OnBinding(keystate)
 	if DB.GetButton().shown then return end -- the key is disabled while the wheel button is shown
 	ns.Popup.OnBinding(keystate)
 end
 
 -- /ec: options · /ec edit: wheel editor · /ec show: open the wheel
-SLASH_EMOTECOMPASS1 = "/emotecompass"
-SLASH_EMOTECOMPASS2 = "/ec"
-SlashCmdList.EMOTECOMPASS = function(msg)
+SLASH_EMOTESCOMPASS1 = "/emotescompass"
+SLASH_EMOTESCOMPASS2 = "/ec"
+SlashCmdList.EMOTESCOMPASS = function(msg)
 	local command = strlower(strtrim(msg))
 	if command == "edit" then
 		ns.Editor.Open()

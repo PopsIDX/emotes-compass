@@ -2,7 +2,7 @@
 -- The wheel button settings are stored in the addon's saved variables (see DB.GetButton).
 -- The key row, above the "show the button" checkbox, shows the bound key; its button opens the game's
 -- keybinds list at the addon's section. While the checkbox is on, the key keeps its binding but is ignored
--- (see EmoteCompass_OnBinding in Init.lua).
+-- (see EmotesCompass_OnBinding in Init.lua).
 
 local _, ns = ...
 
@@ -12,9 +12,9 @@ local Options = {}
 ns.Options = Options
 
 -- Checkbox row template (UI/Checkbox.xml): Blizzard's checkbox row plus a small grey hint after the checkbox.
-EmoteCompassCheckboxMixin = {}
+EmotesCompassCheckboxMixin = {}
 
-function EmoteCompassCheckboxMixin:Init(initializer)
+function EmotesCompassCheckboxMixin:Init(initializer)
 	SettingsCheckboxControlMixin.Init(self, initializer)
 	self.Hint:SetText(initializer.data.hint or "")
 end
@@ -43,7 +43,7 @@ end
 ---------------------------------------------------------------------------
 
 local function GetButtonVariable(key)
-	return "EmoteCompass_Button_" .. key
+	return "EmotesCompass_Button_" .. key
 end
 
 local SHOWN_VARIABLE = GetButtonVariable("shown")
@@ -82,7 +82,7 @@ local function RegisterOpeningOptions(layout)
 			NO_SEARCH_TAGS))
 	end
 
-	local showRow = Settings.CreateControlInitializer("EmoteCompassCheckboxTemplate",
+	local showRow = Settings.CreateControlInitializer("EmotesCompassCheckboxTemplate",
 		RegisterButtonSetting("shown", L.buttonShow, Settings.VarType.Boolean))
 	showRow.data.hint = L.buttonHint
 	layout:AddInitializer(showRow)

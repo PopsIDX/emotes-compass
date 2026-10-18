@@ -299,7 +299,7 @@ local function CreateList()
 end
 
 local function Create()
-	frame = CreateFrame("Frame", "EmoteCompassEditor", UIParent)
+	frame = CreateFrame("Frame", "EmotesCompassEditor", UIParent)
 	frame:SetSize(WIDTH, HEIGHT)
 	frame:SetPoint("CENTER")
 	frame:SetFrameStrata("DIALOG")
@@ -308,7 +308,7 @@ local function Create()
 	frame:SetMovable(true)
 	frame:SetDontSavePosition(true) -- always opens centered; the game must not cache a dragged position
 	frame:Hide()
-	tinsert(UISpecialFrames, "EmoteCompassEditor") -- Escape closes it
+	tinsert(UISpecialFrames, "EmotesCompassEditor") -- Escape closes it
 
 	CreateHeader()
 	CreateWheel()

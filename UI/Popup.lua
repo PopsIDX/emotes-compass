@@ -48,12 +48,12 @@ end
 
 local function Create()
 	-- Invisible full-screen catcher: takes the clicks while the wheel is open.
-	root = CreateFrame("Frame", "EmoteCompassFrame", UIParent)
+	root = CreateFrame("Frame", "EmotesCompassFrame", UIParent)
 	root:SetAllPoints(UIParent)
 	root:SetFrameStrata("FULLSCREEN_DIALOG")
 	root:EnableMouse(true)
 	root:Hide()
-	tinsert(UISpecialFrames, "EmoteCompassFrame") -- Escape closes it
+	tinsert(UISpecialFrames, "EmotesCompassFrame") -- Escape closes it
 
 	view = ns.WheelView.Create(root, { showCancel = true })
 	view:SetClampedToScreen(true)

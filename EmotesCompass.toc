@@ -11,10 +11,10 @@
 ## Notes-koKR: 원형 감정 표현 휠. 키를 누른 채 감정 표현을 가리키고 놓으세요.
 ## Notes-zhCN: 环形表情轮盘。按住按键，指向一个表情，然后松开。
 ## Notes-zhTW: 環形表情輪盤。按住按鍵，指向一個表情，然後放開。
-## IconTexture: Interface\AddOns\EmoteCompass\Media\Icon
+## IconTexture: Interface\AddOns\EmotesCompass\Media\Icon
 ## Author: eidoux
 ## Version: @project-version@
-## SavedVariables: EmoteCompassDB
+## SavedVariables: EmotesCompassDB
 
 # Core: constants, text, helpers, saved data, emote catalog
 Core\Constants.lua

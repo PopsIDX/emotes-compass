@@ -1,5 +1,5 @@
 <Bindings>
-	<Binding name="EMOTECOMPASS_TOGGLE" runOnUp="true" category="BINDING_CATEGORY_EMOTECOMPASS">
-		EmoteCompass_OnBinding(keystate)
+	<Binding name="EMOTESCOMPASS_TOGGLE" runOnUp="true" category="BINDING_CATEGORY_EMOTESCOMPASS">
+		EmotesCompass_OnBinding(keystate)
 	</Binding>
 </Bindings>
